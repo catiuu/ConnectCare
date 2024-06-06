@@ -4,12 +4,13 @@ const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
   :root {
-    /* Cores de Marcas */
-    --primary: #03588C;
-    --secondary: #B5DBE8;
-    --tertiary: #048ABF;
-    --background: #F0F2F0;
-    --fonts: #012E40;
+      /* Cores de Marcas */
+      --primary: #03588C;
+      --secondary: #B5DBE8;
+      --tertiary: #048ABF;
+      --background: #F0F2F0;
+      --fonts: #012E40;
+
 
     /* Cores de Estados */
     --info: #2F80ED;
@@ -82,6 +83,57 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--font);
     color: var(--fonts);
   }
+
+  /* Estilos padrões de input */
+  input {
+    padding: 0.5rem;
+    border: 1px solid var(--gray-4);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--fonts);
+    background-color: white;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  input:hover {
+    border-color: var(--primary);
+  }
+
+  input.error {
+    border-color: var(--error);
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-weight: 600;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--primary);
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    }
+
+    button:hover {
+    background-color: var(--secondary);
+    color: var(--fonts);
+    }
+
+    button:disabled {
+    background-color: var(--gray-4);
+    cursor: not-allowed;
+    }
+
 `;
 
 export default GlobalStyles;
