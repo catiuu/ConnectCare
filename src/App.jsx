@@ -1,10 +1,12 @@
 import GlobalStyle from './GlobalStyle'
+import Cadastro from './Cadastro/Cadastro'
+
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>teste</h1>
+      <Cadastro />
     </>
   );
 }
