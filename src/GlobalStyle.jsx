@@ -83,6 +83,18 @@ const GlobalStyles = createGlobalStyle`
     color: var(--fonts);
   }
 
+   a {
+    text-decoration: none;
+    all: unset;
+    font-weight: 700;
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: var(--tertiary);
+  }
+
+
   button {
     background: var(--primary);
     color: aliceblue;
