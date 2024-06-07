@@ -1,6 +1,5 @@
 <div align="center">
- <h1 style="color: #FE4400;">Hackathon Vai na Web e Alma</h1>
- <h2>Equipe: X-Women<h2>
+ <h1 style="color: #FE4400;">Hackathon Talentos Digitais - Equipe: X-Women</h1>
 </div>
 
 
