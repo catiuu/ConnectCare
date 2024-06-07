@@ -1,6 +1,8 @@
 <div align="center">
  <h1 style="color: #FE4400;">Hackathon Talentos Digitais - Equipe: X-Women</h1>
+<img src="logo.png" alt="Logo do Projeto" width="150"/>
 </div>
+
 
 
 ## 💻 Sobre o projeto
