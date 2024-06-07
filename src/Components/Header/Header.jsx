@@ -11,7 +11,7 @@ function Header() {
       </Link>
       <li>
         {" "}
-        <Link to="/schedule"> Agendar consulta </Link>{" "}
+        <Link to="/scheduling"> Agendar consulta </Link>{" "}
       </li>
       <li>
         {" "}
