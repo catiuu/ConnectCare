@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Box,
   Button,
   Container,
   FormControl,
@@ -35,15 +34,26 @@ const SignUp = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <Container maxWidth="md">
+    <Container component="main" sx={{ height: '100vh', marginTop: '2rem'}}>
       <Grid container spacing={3} alignItems="center" justifyContent="center">
-        <Grid item xs={12} md={6}>
-          <img
-            src={UndrawEnergizer}
-            alt="Illustration of a man and woman drinking water"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </Grid>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sx={{
+          backgroundColor: "#B5DBE8",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <img
+          src={UndrawEnergizer}
+          alt="Illustration of a man and woman drinking water"
+          style={{ width: "100%", height: "auto", maxWidth: "500px" }}
+        />
+      </Grid>
         <Grid item xs={12} md={6}>
           <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label, index) => (
