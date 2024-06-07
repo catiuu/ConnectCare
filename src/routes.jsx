@@ -2,7 +2,7 @@ import React from "react";
 import Home from "./Pages/Home/Home.jsx";
 import SignIn from "./Pages/SignIn/SignIn.jsx";
 import SignUp from "./Pages/SignUp.jsx";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function Navegation() {
   return (
