@@ -3,6 +3,7 @@ import Header from "../../Components/Header/Header.jsx";
 import doctors from "../../assets/doctorsHome.svg";
 import { Div, Box, Heading } from "./StyleHome.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
+import ServiceCard from "../../Components/ServiceCard/ServiceCard.jsx";
 
 function Home() {
   return (
@@ -25,6 +26,7 @@ function Home() {
       </Box>
 
       <h2>Nossos serviços</h2>
+      <ServiceCard />
       <section>
         <h2>Novidades por aí</h2>
         <p>
