@@ -82,6 +82,34 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--font);
     color: var(--fonts);
   }
+
+  button {
+    background: var(--primary);
+    color: aliceblue;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  button:hover {
+    background: var(--tertiary);
+    transition: background-color 0.3s ease;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid var(--gray-4);
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary);
+  }
 `;
 
 export default GlobalStyles;
