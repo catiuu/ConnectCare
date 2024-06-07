@@ -248,7 +248,7 @@ const SignUp = () => {
                     Continuar
                   </Button>
                 ) : (
-                  <Link to="/">
+                  <Link to="/home">
                     <Button variant="contained" type="submit">
                       Finalizar
                     </Button>
