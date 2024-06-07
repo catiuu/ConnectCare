@@ -1,12 +1,10 @@
-import GlobalStyle from './GlobalStyle'
-import Cadastro from './Cadastro/Cadastro'
+import GlobalStyle from "./GlobalStyle";
 import Navegation from "./routes.jsx";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Cadastro />
       <Navegation />
     </>
   );

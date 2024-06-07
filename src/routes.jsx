@@ -8,9 +8,9 @@ function Navegation() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
         <Route path="/" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
