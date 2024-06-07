@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../Components/Header/Header.jsx";
 import doctors from "../../assets/doctorsHome.svg";
 import { Div, Box } from "./StyleHome.jsx";
+import Footer from "../../Components/Footer/Footer.jsx";
 
 function Home() {
   return (
@@ -24,6 +25,7 @@ function Home() {
           <p>Descubra tudo o que a ConnectCare pode oferecer!</p>
         </Box>
       </section>
+      <Footer />
     </div>
   );
 }
