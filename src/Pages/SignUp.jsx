@@ -16,6 +16,7 @@ import {
 import { useForm, Controller } from "react-hook-form";
 
 import UndrawEnergizer from "../assets/undraw_energizer.svg";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const { register, handleSubmit, control } = useForm();
@@ -34,26 +35,26 @@ const SignUp = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <Container component="main" sx={{ height: '100vh', marginTop: '2rem'}}>
+    <Container component="main" sx={{ height: "100vh", marginTop: "2rem" }}>
       <Grid container spacing={3} alignItems="center" justifyContent="center">
-      <Grid
-        item
-        xs={12}
-        md={6}
-        sx={{
-          backgroundColor: "#B5DBE8",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "100vh",
-        }}
-      >
-        <img
-          src={UndrawEnergizer}
-          alt="Illustration of a man and woman drinking water"
-          style={{ width: "100%", height: "auto", maxWidth: "500px" }}
-        />
-      </Grid>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            backgroundColor: "#B5DBE8",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "100vh",
+          }}
+        >
+          <img
+            src={UndrawEnergizer}
+            alt="Illustration of a man and woman drinking water"
+            style={{ width: "100%", height: "auto", maxWidth: "500px" }}
+          />
+        </Grid>
         <Grid item xs={12} md={6}>
           <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label, index) => (
@@ -247,9 +248,11 @@ const SignUp = () => {
                     Continuar
                   </Button>
                 ) : (
-                  <Button variant="contained" type="submit">
-                    Finalizar
-                  </Button>
+                  <Link to="/">
+                    <Button variant="contained" type="submit">
+                      Finalizar
+                    </Button>
+                  </Link>
                 )}
               </Grid>
             </Grid>
