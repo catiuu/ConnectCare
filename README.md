@@ -10,7 +10,7 @@
 Este repositório é o front-end da aplicação web desenvolvida durante o hackathon da Turma de Talentos Digitais do Programa de Formação da escola Vai na Web em parceria com o Alma - Sirío Libanês.
 O Portal do Paciente tem como proposta ser uma plataforma de marcação de consultas que permite o cadastro e login do paciente e marcação de consultas. 
 
-💻 [Acesse a aplicação](https://connect-care-psi.vercel.app/)
+💻 [Acesse a aplicação](https://connect-care-git-dev-3b688e-catiussiatamarahotmailcoms-projects.vercel.app/)
 
 :art: [Figma da aplicação](https://www.figma.com/design/EaJDVISZc7TF7CoXXxxx21/ConnectCare?node-id=1-2&t=mtrN6sv8HdZ8019l-1)
 
