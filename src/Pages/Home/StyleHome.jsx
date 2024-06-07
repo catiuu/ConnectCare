@@ -9,7 +9,7 @@ export const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 12.5rem;
+  height: 10rem;
   background-color: var(--tertiary);
 
   p {
