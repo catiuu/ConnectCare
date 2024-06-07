@@ -1,122 +1,256 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import UndrawEnergize from '../assets/undraw_energizer_re_vhjv 1.svg'
+import React from 'react';
+import {
+  Box,
+  Button,
+  Container,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stepper,
+  Step,
+  StepLabel,
+  TextField,
+  Typography,
+} from '@mui/material';
+import { useForm, Controller } from 'react-hook-form';
 
-const Formulario = () => {
-  const [step, setStep] = useState(1);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+import UndrawEnergizer from '../assets/undraw_energizer_re_vhjv 1.svg';
 
-  const [dados, setDados] = useState({
-    cpf: '',
-    dataNascimento: '',
-    email: '',
-    senha: '',
-    confirmacaoSenha: '',
-  });
+const Form = () => {
+  const { register, handleSubmit, control } = useForm();
+  const [activeStep, setActiveStep] = React.useState(0);
 
-  const onSubmit = (data) => {
-    console.log('Dados do Formulário:', data);
-    // Aqui você pode enviar os dados para o servidor
-  };
-
-  const handlePrevious = () => {
-    setStep(step - 1);
-  };
+  const steps = ['1', '2', '3'];
 
   const handleNext = () => {
-    setStep(step + 1);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <div>
-    <img src={UndrawEnergize} alt="" />
-      <div>
-        <p>Boas-vindas! Para iniciarmos seu cadastro, informe os <strong>dados da conta</strong></p>
-
-        <div>
-          <div className={`step ${step === 1 ? 'active' : ''}`}>1</div>
-          <div className={`step ${step === 2 ? 'active' : ''}`}>2</div>
-          <div className={`step ${step === 3 ? 'active' : ''}`}>3</div>
-        </div>
-
-        {step === 1 && (
+    <Container maxWidth="md">
+      <Grid container spacing={3} alignItems="center" justifyContent="center">
+        <Grid item xs={12} md={6}>
+          <img
+            src={UndrawEnergizer}
+            alt="Illustration of a man and woman drinking water"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Stepper activeStep={activeStep} alternativeLabel>
+            {steps.map((label, index) => (
+              <Step key={index}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <label htmlFor="cpf">CPF/CNPJ:</label>
-              <input
-                type="text"
-                id="cpf"
-                {...register('cpf', { required: true, maxLength: 14, pattern: /^\d{3}\.\d{3}\.\d{3}-\d{2}$/ })}
-                placeholder="123.456.789-11"
-              />
-              {errors.cpf && <span className="error">CPF inválido</span>}
-            </div>
-            <div>
-              <label htmlFor="dataNascimento">Data de Nascimento:</label>
-              <input
-                type="date"
-                id="dataNascimento"
-                {...register('dataNascimento', { required: true })}
-              />
-              {errors.dataNascimento && <span className="error">Data de nascimento obrigatória</span>}
-            </div>
-            <button type="submit" className="next-button">Próximo</button>
-          </form>
-        )}
+            {activeStep === 0 && (
+              <>
+                <Typography variant="h4" gutterBottom>
+                  Boas-vindas! Para iniciarmos seu cadastro, informe os <strong>dados da conta</strong>
+                </Typography>
+                <TextField
+                  label="CPF/CNPJ"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('cpf', { required: true })}
+                />
+                <TextField
+                  label="Data de Nascimento"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  type="date"
+                  {...register('birthDate', { required: true })}
+                />
+                <TextField
+                  label="Senha"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  type="password"
+                  {...register('password', { required: true })}
+                />
+                <TextField
+                  label="Confirmação de Senha"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  type="password"
+                  {...register('confirmPassword', { required: true })}
+                />
+              </>
+            )}
+            {activeStep === 1 && (
+              <>
+              <Typography variant="h4" gutterBottom>
+                  Agora, por favor preencha as seguintes <strong>informações pessoais</strong>
+                </Typography>
+                <TextField
+                  label="Nome Completo"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('fullName', { required: true })}
+                />
+                <TextField
+                  label="Nome social"
 
-        {step === 2 && (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <label htmlFor="email">E-mail:</label>
-              <input
-                type="email"
-                id="email"
-                {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                placeholder="maria.silva@gmail.com"
-              />
-              {errors.email && <span className="error">Email inválido</span>}
-            </div>
-            <div>
-              <label htmlFor="senha">Senha:</label>
-              <input
-                type="password"
-                id="senha"
-                {...register('senha', { required: true, minLength: 6 })}
-                placeholder="senha123"
-              />
-              {errors.senha && <span>Senha inválida</span>}
-            </div>
-            <div>
-              <label htmlFor="confirmacaoSenha">Confirmação de Senha:</label>
-              <input
-                type="password"
-                id="confirmacaoSenha"
-                {...register('confirmacaoSenha', { required: true, validate: (value) => value === dados.senha })}
-                placeholder="senha123"
-              />
-              {errors.confirmacaoSenha && (
-                <span>As senhas não coincidem</span>
-              )}
-            </div>
-            <button type="button" onClick={handlePrevious}>Voltar</button>
-            <button type="submit" >Próximo</button>
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('socialName', { required: false })}
+                />
+                <FormControl variant="outlined" fullWidth margin="normal">
+                  <InputLabel id="gender-label">Gênero</InputLabel>
+                  <Controller
+                    name="gender"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        labelId="gender-label"
+                        label="Gênero"
+                        {...field}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="male">Masculino</MenuItem>
+                        <MenuItem value="female">Feminino</MenuItem>
+                        <MenuItem value="transFemale">Trans Feminino</MenuItem>
+                        <MenuItem value="transMale">Trans Masculino</MenuItem>
+                        <MenuItem value="nonBinary">Não Binário</MenuItem>
+                        <MenuItem value="preferNoToSay">Prefiro não dizer</MenuItem>
+                      </Select>
+                    )}
+                  />
+                </FormControl>
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('email', { required: true })}
+                />
+              </>
+            )}
+            {activeStep === 2 && (
+              <>
+              <Typography variant="h4" gutterBottom>
+                  Para encerrar, precisamos de algumas <strong>informações para contato</strong>
+                </Typography>
+                <TextField
+                  label="CEP"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('cep', { required: true })}
+                />
+                <FormControl variant="outlined" fullWidth margin="normal">
+                  <InputLabel id="estado-label">Estado</InputLabel>
+                  <Controller
+                    name="estado"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <Select
+                        labelId="estado-label"
+                        label="Estado"
+                        {...field}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="SP">SP</MenuItem>
+                        <MenuItem value="RJ">RJ</MenuItem>
+                        <MenuItem value="MG">MG</MenuItem>
+                        <MenuItem value="RS">RS</MenuItem>
+                      </Select>
+                    )}
+                  />
+                </FormControl>
+                <TextField
+                  label="Cidade"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('cidade', { required: true })}
+                />
+                <TextField
+                  label="Logradouro"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('logradouro', { required: true })}
+                />
+                <TextField
+                  label="Bairro"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('bairro', { required: true })}
+                />
+                <TextField
+                  label="Número"
+                  variant="outlined"
+                  fullWidth
+                  margin="none"
+                  {...register('numero', { required: true })}
+                />
+                <TextField
+                  label="Complemento"
+                  variant="outlined"
+                  fullWidth
+                  margin="normal"
+                  {...register('complemento')}
+                />
+                <TextField sx={{ 
+                  borderRadius: '10px'
+                  }}
+                  label="Celular"
+                  variant="outlined"
+                  fullWidth
+                  margin="normal"
+                  {...register('celular', { required: true })}
+                />
+              </>
+            )}
+            <Grid container justifyContent="space-between" mt={3}>
+              <Grid item>
+                {activeStep > 0 && (
+                  <Button variant="contained" onClick={handleBack}>
+                    Voltar
+                  </Button>
+                )}
+              </Grid>
+              <Grid item>
+                {activeStep < steps.length - 1 ? (
+                  <Button variant="contained" onClick={handleNext}>
+                    Continuar
+                  </Button>
+                ) : (
+                  <Button variant="contained" type="submit">
+                    Finalizar
+                  </Button>
+                )}
+              </Grid>
+            </Grid>
           </form>
-        )}
-
-        {step === 3 && (
-          <div>
-            <h2>Confirmação de Dados</h2>
-            <p><strong>CPF/CNPJ:</strong> {dados.cpf}</p>
-            <p><strong>Data de Nascimento:</strong> {dados.dataNascimento}</p>
-            <p><strong>E-mail:</strong> {dados.email}</p>
-            <p><strong>Senha:</strong> {dados.senha}</p>
-            <button type="button" onClick={handlePrevious}>Voltar</button>
-            <button type="button" onClick={onSubmit}>Continuar</button>
-          </div>
-        )}
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
-export default Formulario;
+export default Form;
