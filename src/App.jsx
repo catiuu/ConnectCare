@@ -1,10 +1,11 @@
-import GlobalStyle from './GlobalStyle'
+import GlobalStyle from "./GlobalStyle";
+import Navegation from "./routes.jsx";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>teste</h1>
+      <Navegation />
     </>
   );
 }
