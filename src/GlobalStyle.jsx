@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
@@ -28,14 +28,14 @@ const GlobalStyles = createGlobalStyle`
     --font: 'Inter', sans-serif;
 
 /* Tamanhos e alturas de linhas de cabeçalhos */
-    --heading1: 3.5em;
+    --heading1: 2.5em;
     --heading1-line-height: 3.85em;
     h1 {
       font-size: var(--heading1);
       line-height: var(--heading1-line-height);
     }
 
-    --heading2: 2.5em;
+    --heading2: 1.5em;
     --heading2-line-height: 2.75em;
     h2 {
       font-size: var(--heading2);
